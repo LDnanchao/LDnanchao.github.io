@@ -1,52 +1,15 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <!-- content-Type -->
-<meta charset="utf-8">
+<html lang>
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>JSP内置对象简介 | Hexo</title>
 
-
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="renderer" content="webkit|ie-comp|ie-stand">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="language" content="en">
-<meta name="robots" content="all">
-
-
-<meta content="yes" name="apple-mobile-web-app-capable">
-<meta content="black" name="apple-mobile-web-app-status-bar-style">
-<meta content="telephone=no" name="format-detection">
-<meta content="email=no" name="format-detection">
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-<meta name="author" content="TongchengQiu, TongchengQiu@gmail.com">
-<meta name="reply-to" content="TongchengQiu@gmail.com">
-<meta name="owner" content="TongchengQiu">
-
-
-
-
-<meta name="google-site-verification" content="xxxxxxxxxx">
-
-
-
-
-<meta name="baidu-site-verification" content="xxxxxxxxxx">
-
-
-
-
-
-
-
-<meta name="keywords" content="^_^">
-
-
-<meta name="description" content="JSP内置对象 概念JSP隐式对象是JSP容器为每一个页面提供的java对象，开发者可以直接使用，不需要显式申明。 JSP隐式对象又称为预定义变量    描述 对象     HttpServletRequest 接口的实例 request   HttpServletResponse 接口的实例 response   JspWriter类的实例 out   HttpSession类的实例 sessi">
+    <!-- Open Graph -->
+    <meta name="description" content="JSP内置对象 概念JSP隐式对象是JSP容器为每一个页面提供的java对象，开发者可以直接使用，不需要显式申明。 JSP隐式对象又称为预定义变量    描述 对象     HttpServletRequest 接口的实例 request   HttpServletResponse 接口的实例 response   JspWriter类的实例 out   HttpSession类的实例 sessi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSP内置对象简介">
 <meta property="og:url" content="http://yoursite.com/2019/04/21/JSP内置对象简介/index.html">
@@ -58,146 +21,127 @@
 <meta name="twitter:title" content="JSP内置对象简介">
 <meta name="twitter:description" content="JSP内置对象 概念JSP隐式对象是JSP容器为每一个页面提供的java对象，开发者可以直接使用，不需要显式申明。 JSP隐式对象又称为预定义变量    描述 对象     HttpServletRequest 接口的实例 request   HttpServletResponse 接口的实例 response   JspWriter类的实例 out   HttpSession类的实例 sessi">
 
-
-
-
-
-
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.2">
-
-
-
-
-<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-
-
-<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.2">
-
-
-<script>
-(function(){
-  var bp = document.createElement('script');
-  bp.src = '//push.zhanzhang.baidu.com/push.js';
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(bp, s);
-})();
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "John Doe",
+  "url": "http://yoursite.com"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
 </script>
 
-  <title> JSP内置对象简介 </title>
-  
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'xxxxxxxxxx', 'auto');
-  ga('send', 'pageview');
-</script>
+    
 
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxx";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
 
 </head>
-<body lang>
+<body id="body" style="margin-bottom: 0;" class="pushable">
 
-  <!--[if lte IE 9]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
-
-
-  <div class="another-theme layout">
-
-    
-<header class="header" id="header">
-
-  <div class="header-cont">
-    <div class="text-area">
-      
-        <h1 class="title" data-text="JSP内置对象简介"> JSP内置对象简介 </h1>
-
-        
-        <div class="post-meta">
-          <div class="post-time">
-            Posted on
-            <time datetime="2019-04-21T15:10:12+08:00" content="2019-04-21">
-              2019-04-21
-            </time>
-          </div>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <a href="/2019/04/21/JSP内置对象简介/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/04/21/JSP内置对象简介/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-        </div>
-        
-      
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
     </div>
-    <!-- Navigation -->
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Hexo</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">John Doe</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
     
-    <nav class="navigation clearfix" id="navigation">
-      
-        
-        <a class="nav-link" href="/" rel="section">
-          Home
-        </a>
-      
-        
-        <a class="nav-link" href="/categories" rel="section">
-          Categories
-        </a>
-      
-        
-        <a class="nav-link" href="/tags" rel="section">
-          Tags
-        </a>
-      
-        
-        <a class="nav-link" href="/about" rel="section">
-          About
-        </a>
-      
-    </nav>
     
-  </div>
-  <div class="mask"></div>
-</header>
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-JSP内置对象简介" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    JSP内置对象简介
+</h1>
 
 
-    <main class="container">
 
-      
+                <div class="article-inner">
 
-  <article class="post-article post-type-normal post" itemscope>
-
-  <div class="post-body">
-
-    <div class="content markdown-body"><p>JSP内置对象</p>
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <p>JSP内置对象</p>
 <h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>JSP隐式对象是JSP容器为每一个页面提供的java对象，开发者可以直接使用，不需要显式申明。</p>
 <p>JSP隐式对象又称为预定义变量</p>
 <table>
@@ -274,160 +218,101 @@
 <p>page 对象代表JSP本身，只有在JSP页面内才是合法的。</p>
 <h5 id="exception-对象"><a href="#exception-对象" class="headerlink" title="exception 对象"></a>exception 对象</h5><p>exception 对象包装了从先前页面中抛出的异常信息。它通常被用来产生对出错条件的适当响应。</p>
 <p>作用：exception 对象的作用是显示异常信息，只有在包含 isErrorPage=”true” 的页面中才可以被使用，在一般的JSP页面中使用该对象将无法编译JSP文件。</p>
-</div>
 
-    <div class="post-sidebar">
-  <div class="toggle-btn" id="toggle-btn">
-    <i class="fa fa-reorder"></i>
-  </div>
-  <section class="post-toc-wrap" id="post-sidebar">
-    <h2 class="toc-title">内容目录</h2>
-    <div class="post-toc">
-      
-      
-        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#各内置对象的作用"><span class="nav-text">各内置对象的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#request对象"><span class="nav-text">request对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#response对象"><span class="nav-text">response对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#out对象"><span class="nav-text">out对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#session对象"><span class="nav-text">session对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#application对象"><span class="nav-text">application对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#config对象"><span class="nav-text">config对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pageContext-对象"><span class="nav-text">pageContext 对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#page-对象"><span class="nav-text">page 对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exception-对象"><span class="nav-text">exception 对象</span></a></li></ol></li></ol></div>
-      
-    </div>
-  </section>
-</div>
+                        
+                    </div>
 
+                    
+                    
+                    
 
-  </div>
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-04-21T07:10:12.597Z" itemprop="datePublished">2019-04-21</time>
 
-  <footer class="post-footer">
-    
-    
-  <style>
-    .donation {
-      width: 100%;
-      margin-top: 2rem;
-    }
-    .donation .text {
-      color: #333;
-      font-size: .8rem;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-    .donation .text:hover {
-      color: rgb(63,134,181);
-    }
-    .donation .img-box {
-      transition: all .3s;
-      width: 0;
-      height: 0;
-      margin: 1rem auto;
-      overflow: hidden;
-    }
-    .donation .img-box img {
-      width: 100%;
-      height: 100%;
-    }
-    .donation #donation {
-      display: none;
-    }
-    .donation #donation:checked + .img-box {
-      width: 16rem;
-      height: 16rem;
-    }
-  </style>
-  <div class="donation">
-    <label class="text" for="donation">
-      如果你觉得文章对你有帮助，并且想为我买一杯咖啡，点这里～
-    </label>
-    <input type="checkbox" name="donation" id="donation">
-    <div class="img-box">
-      <img src="/img/donation.png" alt="donation">
-    </div>
-  </div>
-
-
-  </footer>
-
-</article>
-
-
-
-
-      
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2019/04/21/JSP内置对象简介/" data-title="JSP内置对象简介" data-url="http://yoursite.com/2019/04/21/JSP内置对象简介/">
-      </div>
-    
-  </div>
-
-
-
-
-    </main>
-
-    <footer class="footer clearfix">
-  <div class="copyright">
-    <span>Copyright</span>
-    
-    &copy;  2015-
-    <span itemprop="copyrightYear">2019</span>
-    <span class="author" itemprop="copyrightHolder">John Doe</span>
-  </div>
-
-  <div class="info">
-    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
-      <span id="showDays" class="show-days"></span>
-      <script>
-      var birthDay = new Date('10/04/2015');
-      var now = new Date();
-      var duration = now.getTime() - birthDay.getTime();
-      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
-      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
-      </script>
-      ---
-    
-    <span id="busuanzi_container_site_pv">
-        总访问量<span id="busuanzi_value_site_pv"></span>次
     </span>
-  </div>
+    <span class="post-description-item">
+        
+    </span>
+</div>
 
-  <div class="my-theme">
-    Theme by <a href="//qiutc.me">qiutc</a> | <iframe style="margin-left: 5px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=TongchengQiu&amp;repo=hexo-theme-another&amp;type=star&amp;count=true"></iframe>
-  </div>
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
 
-</footer>
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a class="ui tiny button disabled"><i class="angle left icon"></i>前一篇</a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2019/04/21/hello-world/" class="ui tiny button">
+                    
+                    Hello World
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#概念"><span>概念</span></a></li><li><a href="#各内置对象的作用"><span>各内置对象的作用</span></a><ol><li><a href="#request对象"><span>request对象</span></a></li><li><a href="#response对象"><span>response对象</span></a></li><li><a href="#out对象"><span>out对象</span></a></li><li><a href="#session对象"><span>session对象</span></a></li><li><a href="#application对象"><span>application对象</span></a></li><li><a href="#config对象"><span>config对象</span></a></li><li><a href="#pageContext-对象"><span>pageContext 对象</span></a></li><li><a href="#page-对象"><span>page 对象</span></a></li><li><a href="#exception-对象"><span>exception 对象</span></a></li></ol></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
 
 
-  </div>
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">John Doe</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
 
-  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
-
-
-
-
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"xxxxxxxxxx"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
+    </div>
 
 
 
 
+<!-- scripts list from theme config.yml -->
 
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
 
-<script type="text/javascript" src="/js/motto.min.js?v=0.0.2"></script>
-<script type="text/javascript" src="/js/main.js?v=0.0.2"></script>
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
 
 
 </body>
